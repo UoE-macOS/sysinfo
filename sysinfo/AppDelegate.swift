@@ -23,19 +23,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         var hostName: String!
-        //hostName = NSHost.currentHost().localizedName
-        hostName = "ENG-C02L30RADNCW"
+        hostName = NSHost.currentHost().localizedName
+        
         let menu = NSMenu()
         
-        menu.addItem(NSMenuItem(title: hostName, action: Selector("doNothing:"), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: hostName, action: Selector("copyName:"), keyEquivalent: ""))
         menu.addItem(NSMenuItem.separatorItem())
         menu.addItem(NSMenuItem(title: "Quit", action: Selector("terminate:"), keyEquivalent: "q"))
         
         statusItem.menu = menu
     }
     
-    func doNothing(Sender: AnyObject) {
-        // Blank selector, so the menu item appears enabled.
+    func copyName(Sender: NSMenuItem) {
+        // copy name to clipboard
+        let pasteboard = NSPasteboard.generalPasteboard()
+        pasteboard.clearContents()
+        pasteboard.setString(Sender.title, forType: NSPasteboardTypeString)
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
