@@ -29,7 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         menu.addItem(NSMenuItem(title: hostName, action: Selector("doNothing:"), keyEquivalent: ""))
         menu.addItem(NSMenuItem.separatorItem())
-        menu.addItem(NSMenuItem(title: "Quit Quotes", action: Selector("terminate:"), keyEquivalent: "q"))
+        menu.addItem(NSMenuItem(title: "Quit", action: Selector("terminate:"), keyEquivalent: "q"))
         
         statusItem.menu = menu
     }
